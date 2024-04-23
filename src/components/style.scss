@@ -1,0 +1,44 @@
+.padding {
+  padding: 20px;
+  .playlists-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2 {
+      color: #fff;
+      font-size: 2rem;
+    }
+    p {
+      color: #adadad;
+      cursor: pointer;
+    }
+  }
+  .playlist-container {
+    display: flex;
+    // align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    cursor: pointer;
+    .playlist-card {
+      background-color: #1b1b1b;
+      max-width: 180px;
+      // max-height: 324px;
+      // height: 100%;
+      border-radius: 8px;
+      .card-content {
+        padding: 21px;
+        img {
+          max-width: 100%;
+        }
+        h4 {
+          color: #fff;
+          line-height: 20px;
+        }
+        h5 {
+          color: #b3b3b3;
+        }
+      }
+    }
+  }
+}
