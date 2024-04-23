@@ -1,3 +1,93 @@
 .playlist-content {
   margin-left: 320px;
+  width: 590px;
+  min-width: 100%;
+  .playlist-top {
+    background: linear-gradient(180deg, #3333a3 3.13%, #121212);
+    padding: 20px 40px;
+    .arrows {
+      display: flex;
+      align-content: inherit;
+      gap: 12px;
+      padding-bottom: 40px;
+      .IoIosArrowBack,
+      .IoIosArrowForward {
+        width: 18px;
+        height: 20px;
+        color: #fff;
+        cursor: pointer;
+        padding: 4px;
+        background-color: #121212;
+        border-radius: 50%;
+        opacity: 0.7;
+      }
+    }
+    .playlist_top-texts {
+      display: flex;
+      gap: 20px;
+      .texts {
+        color: #fff;
+        padding-top: 35px;
+        h1 {
+          font-size: 50px;
+        }
+        p {
+          span {
+            color: #ffffffb2;
+          }
+        }
+      }
+    }
+  }
+  .padding {
+    padding: 20px 40px;
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .buttons {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        .FaCirclePlay {
+          width: 52px;
+          height: 52px;
+          color: #65d36e;
+        }
+        .FcLike,
+        .CiSaveDown1,
+        .BsThreeDots {
+          width: 32px;
+          height: 32px;
+          color: #fff;
+        }
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        gap: 12px;
+        .IoSearchOutline,
+        .IoIosArrowDown {
+          width: 24px;
+          height: 26px;
+        }
+      }
+    }
+    table {
+      padding-top: 30px;
+      width: 100%;
+      thead {
+        tr th {
+          color: #b3b3b3;
+          font-weight: 450;
+        }
+      }
+      tbody {
+        tr td {
+          text-align: center;
+        }
+      }
+    }
+  }
 }
