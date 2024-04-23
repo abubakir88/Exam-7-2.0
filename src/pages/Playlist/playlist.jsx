@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { All } from "../../components/links";
-import { FaRegHeart } from "react-icons/fa";
 import { getPlaylists, getToken } from "../../components/fetchData";
-// import music from "../../images/music.png";
-import { FaHeart } from "react-icons/fa";
 import "./playlist.scss";
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoIosArrowDown,
+} from "react-icons/io";
+import { FaCirclePlay } from "react-icons/fa6";
+import { FcLike } from "react-icons/fc";
+import { CiSaveDown1 } from "react-icons/ci";
+import { BsThreeDots } from "react-icons/bs";
+import { IoSearchOutline } from "react-icons/io5";
+import { MdOutlineWatchLater } from "react-icons/md";
 
 const Details = () => {
   const { id } = useParams();
@@ -14,6 +22,7 @@ const Details = () => {
   const tokenURl = "https://accounts.spotify.com/api/token";
 
   const [data, setData] = useState(null);
+  const [album, setAlbum] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +32,9 @@ const Details = () => {
         const album = await getPlaylists(
           "https://api.spotify.com/v1/playlists/37i9dQZF1DWWY64wDtewQt/tracks"
         );
-        setData(album.items);
+        console.log(album);
+        setData(playlists?.playlists.items);
+        setAlbum(album);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -31,48 +42,85 @@ const Details = () => {
     fetchData();
   }, [api, apiUrl, id]);
 
-  console.log(data);
   return (
-    <div className="return">
-      <div className="headMusic">
-        <div className="Like_textt">
-          <img src="" alt="music_pohot" />
-          <div className="Like_h">
-            <p>
-              PUBLIC <br /> PLAYLIST
-            </p>
-            <h1>Songs</h1>
-          </div>
-        </div>
-        <div>
-          {data?.map((el, i) => (
-            <div className="playlists" key={i}>
-              <div className="allIn">
-                <span>{i + 1}</span>
-                <div className="list_img">
-                  <img src={el.track.album.images[0].url} />
+    <div className="playlist-content">
+      <div>
+        {data?.map((el, i) => {
+          // console.log(el);
+          if (el?.id === id) {
+            return (
+              <div key={i}>
+                <div className="playlist-top">
+                  <div className="arrows">
+                    <IoIosArrowBack className="IoIosArrowBack" />
+                    <IoIosArrowForward className="IoIosArrowForward" />
+                  </div>
+                  <div className="playlist_top-texts">
+                    <img src={el?.images[0].url} alt={el?.name} />
+                    <div className="texts">
+                      <h6>PUBLIC PLAYLIST</h6>
+                      <h1>{el?.name}</h1>
+                      <p>
+                        Julia Wolf, ayokay, Khalid <span>and more</span>
+                      </p>
+                      <p>
+                        <span>ade for </span>davedirect3
+                        <span>34 songs, 2hr 01 min</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="list_name">
-                  <p>{el.track.artists[0].name}</p>
+                <div className="padding">
+                  <div className="actions">
+                    <div className="buttons">
+                      <FaCirclePlay className="FaCirclePlay" />
+                      <FcLike className="FcLike" />
+                      <CiSaveDown1 className="CiSaveDown1" />
+                      <BsThreeDots className="BsThreeDots" />
+                    </div>
+                    <div className="search">
+                      <IoSearchOutline className="IoSearchOutline" />
+                      <p>Custom order</p>
+                      <IoIosArrowDown className="IoIosArrowDown" />
+                      <p></p>
+                    </div>
+                  </div>
+                  <table className="table table-dark table-hover ">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">TITLE</th>
+                        <th scope="col">ALBUM</th>
+                        <th scope="col">DATE ADDED</th>
+                        <th scope="col">
+                          <MdOutlineWatchLater />
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {album.items.slice(0, 20).map((items, i) => (
+                        <tr className="playlist" key={i}>
+                          <th>{i + 1}</th>
+                          <td>
+                            <img src={items.track.album.images[2].url} alt="" />
+                          </td>
+                          <td>
+                            <audio
+                              controls
+                              src={items.track.preview_url}
+                            ></audio>
+                          </td>
+                          <td>@mdo</td>
+                          <td>time</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              <div className="list_audoi">
-                <audio controls src={el.track.preview_url}></audio>
-              </div>
-              <div className="likes">
-                <input
-                  className="likes_check"
-                  type="checkbox"
-                  id={el.track.name + el.track.id}
-                />
-                <label htmlFor={el.track.name + el.track.id}>
-                  <FaRegHeart className="bosh" />
-                  <FaHeart className="band" />
-                </label>
-              </div>
-            </div>
-          ))}
-        </div>
+            );
+          }
+        })}
       </div>
     </div>
   );

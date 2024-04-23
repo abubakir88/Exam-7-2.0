@@ -4,7 +4,7 @@ import { getPlaylists, getToken } from "../fetchData";
 import { Uniquely } from "../links";
 import "../style.scss";
 
-const Jum = () => {
+const Uniquely = () => {
   const tokenURl = "https://accounts.spotify.com/api/token";
 
   const [data, setData] = useState([]);
@@ -50,4 +50,4 @@ const Jum = () => {
   );
 };
 
-export default Jum;
+export default Uniquely;

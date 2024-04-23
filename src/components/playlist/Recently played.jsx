@@ -4,7 +4,7 @@ import { getPlaylists, getToken } from "../fetchData";
 import { Recently } from "../links";
 import "../style.scss";
 
-const Jump = () => {
+const Recently = () => {
   const tokenURl = "https://accounts.spotify.com/api/token";
 
   const [data, setData] = useState([]);
@@ -50,4 +50,4 @@ const Jump = () => {
   );
 };
 
-export default Jump;
+export default Recently;
