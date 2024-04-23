@@ -12,7 +12,7 @@ const Left = () => {
         <div className="three">
           <Link to="/" className="home">
             <IoMdHome className="IoMdHome" />
-            <h3>Home</h3>
+            <h3>Homee</h3>
           </Link>
           <div className="search">
             <FaSearch className="FaSearch" />
