@@ -1,0 +1,98 @@
+.left {
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  min-width: 310px;
+  // max-width: 310px;
+  // min-height: 100vh;
+  // height: 100%;
+  .all {
+    padding: 20px 30px;
+    .three {
+      padding-bottom: 12px;
+      .home {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        cursor: pointer;
+        .IoMdHome {
+          width: 25px;
+          height: 28px;
+          color: #fff;
+        }
+        h3 {
+          color: #fff;
+        }
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        cursor: pointer;
+        .FaSearch {
+          width: 25px;
+          height: 28px;
+          color: #aaa;
+        }
+        h3 {
+          color: #aaa;
+        }
+      }
+      .library {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        cursor: pointer;
+        .LuLibrary {
+          width: 25px;
+          height: 28px;
+          color: #aaa;
+        }
+        h3 {
+          color: #aaa;
+        }
+      }
+    }
+    .two {
+      .create {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        cursor: pointer;
+        .FiPlus {
+          background-color: #aaa;
+          width: 30px;
+          height: 32px;
+          border-radius: 2px;
+          padding: 0px 2px;
+        }
+        h3 {
+          color: #aaa;
+        }
+      }
+      .like {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        cursor: pointer;
+        .FcLike {
+          width: 22px;
+          height: 25px;
+          border-radius: 2px;
+          padding: 4px 6px;
+          background: linear-gradient(133.58deg, #3822ea 3.13%, #c7e9d7 97.71%);
+        }
+        h3 {
+          color: #fff;
+        }
+      }
+    }
+    .texts {
+      p {
+        color: #b3b3b3;
+      }
+    }
+  }
+}
